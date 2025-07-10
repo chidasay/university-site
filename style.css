@@ -1,0 +1,434 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+body {
+    color: #031D65;
+    font-size: 1rem;
+    font-family:'Noto Sans', sans-serif;
+    background-image: url("img/background.png");
+    background-size: cover;
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+    color: #031D65;
+}
+img {
+    max-width: 100%
+}
+li {
+    list-style: none;
+}
+ .wrapper {
+    margin: 5rem 1rem;
+}
+
+/* グラスモーフィズムの枠 */
+.glass {
+    border-radius: 2rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.25); /* 白透明 */
+    box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4);
+    -webkit-box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4); /* safari等対応 */
+    backdrop-filter: blur(5px); /* すりガラス */
+    -webkit-backdrop-filter: blur(5px); /* safari等対応 */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 境界線 */
+    padding: 0rem 0.5rem; /* 内側の更に左右 */
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* 目立たせたい文章1 */
+.stand1 {
+    font-weight: bold;
+}
+/* 目立たせたい文章2 */
+.stand2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* ヘッダー関係 */
+/* ナビバー全体*/
+.navbar {
+    border-radius: 2rem; /* 角を丸く */
+    margin: 1.5rem 1rem; /* 上下左右に余白 */
+    overflow: hidden;    /* 文字が飛び出ないように */
+    box-shadow: 0 4px 8px rgba(50, 80, 108, 0.5);
+    -webkit-box-shadow: 0 4px 8px rgba(50, 80, 108, 0.5); /* safari等対応 */
+}
+/* ハンバーガー */
+.navbar-toggler {
+    border-radius: 2rem;
+    margin-right: 1rem;
+}
+/* ヘッダーの大学名 */
+.navbar-brand {
+    text-decoration: none;
+    color: #031D65;
+    font-family:'Noto Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+/* ヘッダーのリストの文字関係 */
+.header-item a {
+    text-decoration: none;
+    color: #031D65;
+    font-family: 'Unica One';
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 1rem;
+}
+/* ヘッダーのリストの方の全体 */
+.navbar-nav {
+    margin-right: 0.5rem;
+}
+
+/* 見出し関連 */
+/* 見出し */
+.labels {
+    color:#2b90d9;
+    display: flex; /* 横並び */
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* はみ出たら改行 */
+    position: relative;
+    z-index: 1; /* グラスモーフィズムの枠よりも下に */
+    margin-bottom: clamp(-3rem, -1.5vw, -0.5rem);
+}
+/* 見出し */
+.label-en {
+    font-size: clamp(4.5rem, 10.5vw, 15rem); /* ウィンドウの最小最大 */
+    font-weight: 800;
+    margin: 0;
+    margin-bottom: -1rem;
+    line-height: 1; /* 上下の余白を少なく */
+}
+
+/* メインビジュアルの設定 */
+.mainVisual {
+    position: relative;
+    margin-top: 6.5rem;
+}
+/* メインビジュアルの文字（ロゴ） */
+#mainSymbol {
+    position: absolute;
+    margin-left: 1.1rem;
+    margin-top: 2rem;
+    width: 120%;
+    z-index: 2;
+    filter: /* メインビジュアルのsvgに白い縁取り */
+        drop-shadow(0 0 1px white)
+        drop-shadow(0 0 3px rgba(255, 255, 255, 0.7))
+        drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+}
+/* メインビジュアルの写真 */
+#mainPhoto {
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    width: 97%;
+}
+#mainPhoto::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+}
+#mainPhoto::before {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ニュース */
+/* 間の線 */
+.news-list li:not(:last-child) { /* 最後以外 */
+    border-bottom: 3px solid #D9E1E8;  /* これで線を引いている */
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+/* リストのリンクの文字全部 */
+.news-list a {
+    color:#031D65;
+    font-family: 'Noto-Sans', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex; /* 横並び */
+    gap: 2rem; /* 日付と文章の間 */
+}
+/* 右側の▶ */
+.news-list a::after {
+    content: "▶";
+    font-size: 17px;
+    margin-left: auto; /* 右端寄せ */
+    margin-right: 1rem;
+    color: #2b90d9;
+}
+.news-list {
+    padding-right: 2rem;
+}
+
+/* アバウト */
+/* コンテンツ内容 */
+.content-about {
+    position: relative; /* 重ねの基準*/
+}
+/* 左側 */
+.left {
+    display: flex; /* デフォルトは横並びだが↓で縦に */
+    flex-direction: column;
+    gap: 2rem; /* 一つ目と二つ目の間隔 */
+    width: 72%;
+    position: relative;
+    z-index: 2; /* 写真よりも前に */
+}
+/* 中身の文章（小見出し含む） */
+.sentence {
+    padding: 0 2rem;
+}
+/* 小見出し */
+.sLabel {
+    font-size: clamp(2rem, 2.5vw, 3rem);;
+    font-weight: 750;
+    margin-bottom: 1.7rem;
+}
+/* 文章 */
+.sentence p {
+    padding-left: 0.5rem;
+    margin-bottom: 2px; /* pとpの間隔 */
+}
+
+/* 右側 */
+.right {
+    position: absolute; /* 自由に配置 */
+    top: 0;
+    right: 0;
+    width: 40%;
+    z-index: 1; /* こちらがより後ろ */
+}
+/* 円形の写真 */
+.circle-photo {
+    border-radius: 100%;
+    -webkit-mask-image: radial-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 70%);
+    mask-image: radial-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 70%);
+}
+/* デフォルトは0枚 */
+.photo-stack img {
+    display: none;
+}
+/* 画面幅が~600px：6枚表示 */
+@media (max-width: 600px) {
+    .photo-stack img:nth-child(-n+6) {
+        display: block;
+    }
+}
+/* 600px〜710px：4枚表示 */
+@media (min-width: 600px) and (max-width: 710px) {
+    .photo-stack img:nth-child(-n+4) {
+        display: block;
+    }
+}
+/* 710px~920px：3枚表示 */
+@media (min-width: 710px) and (max-width: 910px) {
+    .photo-stack img:nth-child(-n+3) {
+        display: block;
+    }
+}
+/* 910px~1180px：2枚表示 */
+@media (min-width: 910px) and (max-width: 1180px) {
+    .photo-stack img:nth-child(-n+2) {
+        display: block;
+    }
+}
+/* 1180px以上：1枚表示 */
+@media (min-width: 1180px) {
+    .photo-stack img:nth-child(-n+1) {
+        display: block;
+    }
+}
+
+/* コース関連 */
+/* 一つの学部とそれに含まれる学科 */
+.dep {
+    display: flex; /* 横並べ */
+    align-items: flex-start; /* 上揃え */
+    gap: 1.5rem; /* 学部と学科の間 */
+    margin-bottom: 2rem; /* 学部と学部の間 */
+}
+/* 学部のラベル */
+.dep-label {
+    background-color: #D9E1E8;
+    border-radius: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    width: 130px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 学部のh3の文字のみ */
+.dep h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.35rem);
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap; /* 自動折り返しなし */
+}
+/* 学科の方全体 */
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* リンク */
+.course-list li {
+    padding: 0.3rem 0; /*少し下で真ん中に*/
+    font-weight: 500;
+}
+/* 学科と学科の間の線引き */
+.course-list li:not(:last-child) { /* 最後以外 */
+    border-bottom: 2.5px solid #D9E1E8;
+}
+
+/* インタビュー関連 */
+/* カード全体 */
+.card-item {
+    width: 375px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+}
+/* 内側 */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s; /* 回転にかかる時間 */
+    transform-style: preserve-3d; /* 3D効果 */
+    position: relative;
+}
+/* 回転用 */
+.card-item:hover .card-inner {
+    transform: rotateY(180deg);
+}
+/* カードの表裏共通 */
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    backface-visibility: hidden; /* 裏を隠す */
+}
+/* カードの表面 */
+.card-front {
+    background-size: cover; /* 全域が覆われる */
+    box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4); /* 枠と同じ */
+    -webkit-box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4);
+    overflow: hidden;
+}
+#card1 {
+    background-image: url(img/human1.jpeg);
+}
+#card2 {
+    background-image: url(img/human2.jpeg);
+}
+/* カードの裏面 */
+.card-back {
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4); /* 枠と同じ */
+    -webkit-box-shadow: 0 4px 20px rgba(50, 80, 108, 0.4);
+    backdrop-filter: blur(5px); /* すりガラス */
+    -webkit-backdrop-filter: blur(5px); /* safari等対応 */
+    padding: 1.75rem 2.5rem;
+}
+.card-back h4 {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+.card-back p {
+    margin-bottom: 1.3rem;
+}
+/* 表裏ではなく複数 */
+.cards {
+    display: flex; /* 横並びのため */
+    flex-wrap: wrap; /* 折り返しできる */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+/* カードのラベル */
+.card-label {
+    position: absolute;
+    bottom: 0;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    background:#D9E1E8;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+}
+
+/* その他関連 */
+#expla {
+    margin-left: -0.45rem;
+}
+
+/* フッター全体 */
+.footer {
+  padding: 6.5rem 2rem 1rem 2rem;
+  font-size: 0.85rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, white 40%); /* グラデーション */
+}
+/* コピーライト */
+.copyright {
+  text-align: center;
+}
+
+/* ホバー */
+a:hover {
+    color: #2b90d9 !important;
+    transition: 0.3s ease; /* なめらか */
+}
+.sentence ul {
+    padding-left: 0;
+}
+
+
+/* リンクでスクロールする位置の調整 */
+#ABOUT {
+    scroll-margin-top: 75px;
+}
+#COURSE {
+    scroll-margin-top: 75px;
+}
+#INTERVIEW {
+    scroll-margin-top: 75px;
+}
+#OTHER {
+    scroll-margin-top: 75px;
+}
+
+/* scriptのローディング */
+#loader {
+    position: fixed; /* 固定した二つとセット */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #031D65;
+    background: white;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Unica One';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    transition: opacity 0.7s ease; /* 0.7病で透明*/
+}
